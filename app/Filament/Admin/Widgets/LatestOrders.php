@@ -18,8 +18,8 @@ class LatestOrders extends TableWidget
     protected   int|string|array $columnSpan = "full";
 
     public function table(Table $table): Table
-    {
-        
+    {   
+          
         return $table
             ->query(fn(): Builder => Order::query())
             ->columns([
