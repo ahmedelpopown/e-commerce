@@ -3,11 +3,11 @@
 namespace App\Livewire\Settings;
 
 use Exception;
-use Laravel\Fortify\Actions\ConfirmTwoFactorAuthentication;
-use Laravel\Fortify\Actions\DisableTwoFactorAuthentication;
-use Laravel\Fortify\Actions\EnableTwoFactorAuthentication;
-use Laravel\Fortify\Features;
-use Laravel\Fortify\Fortify;
+// use Laravel\Fortify\Actions\ConfirmTwoFactorAuthentication;
+// use Laravel\Fortify\Actions\DisableTwoFactorAuthentication;
+// use Laravel\Fortify\Actions\EnableTwoFactorAuthentication;
+// use Laravel\Fortify\Features;
+// use Laravel\Fortify\Fortify;
 use Livewire\Attributes\Locked;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
@@ -39,14 +39,14 @@ class TwoFactor extends Component
      */
     public function mount(DisableTwoFactorAuthentication $disableTwoFactorAuthentication): void
     {
-        abort_unless(Features::enabled(Features::twoFactorAuthentication()), Response::HTTP_FORBIDDEN);
+        // abort_unless(Features::enabled(Features::twoFactorAuthentication()), Response::HTTP_FORBIDDEN);
 
-        if (Fortify::confirmsTwoFactorAuthentication() && is_null(auth()->user()->two_factor_confirmed_at)) {
-            $disableTwoFactorAuthentication(auth()->user());
-        }
+        // if (Fortify::confirmsTwoFactorAuthentication() && is_null(auth()->user()->two_factor_confirmed_at)) {
+        //     $disableTwoFactorAuthentication(auth()->user());
+        // }
 
         $this->twoFactorEnabled = auth()->user()->hasEnabledTwoFactorAuthentication();
-        $this->requiresConfirmation = Features::optionEnabled(Features::twoFactorAuthentication(), 'confirm');
+        // $this->requiresConfirmation = Features::optionEnabled(Features::twoFactorAuthentication(), 'confirm');
     }
 
     /**

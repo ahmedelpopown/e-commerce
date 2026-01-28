@@ -3,7 +3,7 @@
 namespace App\Livewire\Settings\TwoFactor;
 
 use Exception;
-use Laravel\Fortify\Actions\GenerateNewRecoveryCodes;
+//  use Laravel\Fortify\Actions\GenerateNewRecoveryCodes;
 use Livewire\Attributes\Locked;
 use Livewire\Component;
 
