@@ -4,16 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Attributes\Scope;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Coupon extends Model
 {
+    use HasFactory;
     protected $fillable = [
         "code",
         "type",
         "value",
         "minimum_order_value",
-        "maximum_discount_value",
+        "maximum_discount",
         "usage_limit",
         "usage_limit_per_customer",
         "starts_at",
@@ -26,7 +28,7 @@ class Coupon extends Model
         return [
             "value" => "decimal:2",
             "minimum_order_value" => "decimal:2",
-            "maximum_discount_value" => "decimal:2",
+            "maximum_discount" => "decimal:2",
             "usage_limit" => "integer",
             "usage_limit_per_customer" => "integer",
             "starts_at" => "datetime",
@@ -110,8 +112,8 @@ class Coupon extends Model
         }
         ;
 
-        if ($this->maximum_discount_value && $discount > $this->maximum_discount_value) {
-            $discount = $this->maximum_discount_value;
+        if ($this->maximum_discount && $discount > $this->maximum_discount) {
+            $discount = $this->maximum_discount;
         }
         return min($discount, $subtotal);
     }

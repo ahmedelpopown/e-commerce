@@ -19,8 +19,11 @@ class CategoryForm
                     ->columnSpanFull()
                     ->columns(2)
                     ->schema([
+                            TextInput::make("name")
+
+                            ->default(null),
                         Textarea::make('description')
-                            ->rows(3)
+                            ->rows(2)
 
                             ->default(null)
                             ->columnSpanFull(),

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('order_id')->nullable()->constrained()->cascadeOnDelete();
             $table->integer("rating");
             $table->string("title")->nullable();
-            $table->string("comment")->nullable();
+            $table->text("comment")->nullable();
             $table->boolean("is_verified_purchase")->default(false);
             $table->boolean("is_approved")->default(false);
             $table->timestamps();

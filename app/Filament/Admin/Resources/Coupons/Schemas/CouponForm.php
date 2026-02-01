@@ -53,7 +53,7 @@ class CouponForm
                             ->minValue(0)
 
                             ->default(null),
-                        TextInput::make('maximum_discount_value')
+                        TextInput::make('maximum_discount')
                             ->visible(fn(callable $get) => $get("type") === 'percentage')
                             ->prefix("0")
                             ->minValue(0)
