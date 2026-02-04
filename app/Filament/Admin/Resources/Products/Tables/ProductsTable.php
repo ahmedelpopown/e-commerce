@@ -19,10 +19,10 @@ class ProductsTable
     {
         return $table
             ->columns([
-                ImageColumn::make("primaryImage.image_path")
+              ImageColumn::make('primary_image.image_path')
                     ->label('Image')
                     ->circular()
-                    ->defaultImageUrl(url('/images/placeholder.png')),
+                    ->defaultImageUrl(url('/images/placeholder.jpg')),
                 TextColumn::make('category_id')
                     ->numeric()
                     ->sortable(),

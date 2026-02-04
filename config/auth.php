@@ -1,7 +1,5 @@
 <?php
 
-use App\Models\Customer;
-
 return [
 
     /*
@@ -44,9 +42,8 @@ return [
         ],
         'customer' => [
             'driver' => 'session',
-            'provider' => 'customers',
-        ],
-
+            'provider' => 'customers'
+        ]
     ],
 
     /*
@@ -71,10 +68,11 @@ return [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
         ],
+
         'customers' => [
             'driver' => 'eloquent',
-            'model' => Customer::class,
-        ],
+            'model' => App\Models\Customer::class,
+        ]
 
         // 'users' => [
         //     'driver' => 'database',
@@ -112,8 +110,8 @@ return [
             'provider' => 'customers',
             'table' => 'password_reset_tokens',
             'expire' => 60,
-            'throttle' => 60,
-        ],
+            'throttle' => 60
+        ]  
     ],
 
     /*

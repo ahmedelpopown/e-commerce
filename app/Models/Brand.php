@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 class Brand extends Model
 {
     use HasFactory;
-    protected $fillable=[
+    protected $fillable = [
         'name',
         'slug',
         'description',
@@ -27,8 +27,9 @@ class Brand extends Model
     }
 
     #[Scope()]
-    protected function sorted(Builder $builder){
-$builder->orderBy('sort_order','asc');
+    protected function sorted(Builder $builder)
+    {
+        $builder->orderBy('sort_order', 'asc');
     }
 
     public function products()
@@ -39,14 +40,14 @@ $builder->orderBy('sort_order','asc');
     protected static function boot()
     {
         parent::boot();
-        static::creating(function ($brand){
-            if(empty($brand->slug)){
-                $brand->slug=Str::slug($brand->name);
+        static::creating(function ($brand) {
+            if (empty($brand->slug)) {
+                $brand->slug = Str::slug($brand->name);
             }
         });
-        static::updating(function ($brand){
-            if($brand->isDirty('name') && empty($brand->slug)){
-                $brand->slug=Str::slug($brand->name);
+        static::updating(function ($brand) {
+            if ($brand->isDirty('name') && empty($brand->slug)) {
+                $brand->slug = Str::slug($brand->name);
             }
         });
     }

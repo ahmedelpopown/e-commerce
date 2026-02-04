@@ -172,6 +172,7 @@ class ProductForm
                                                     foreach ($state as $index => $imagePath) {
                                                         $record->images()->create([
                                                             'image_path' => $imagePath,
+                                                            'is_primary' => $index === 0,
                                                             'sort_order' => $index,
                                                         ]);
                                                     }

@@ -119,7 +119,6 @@ class Order extends Model
             'user_id' => $userId,
         ]);
     }
-
     protected static function boot()
     {
         parent::boot();
@@ -129,14 +128,22 @@ class Order extends Model
             }
         }));
 
-        static::created(function ($order) {
-            $order->statusHistories()->create([
-                'status' => $order->status,
-                'notes' => 'Order created',
-            ]);
-            // order confirmation email
-        });
+static::created(function ($order) {
+
+    $userId = auth('customer')->id() 
+        ?? auth()->id()
+        ?? null;
+
+    $order->updateStatus(
+        $order->status,
+        'Order created',
+        $userId
+    );
+});
+
+
 
     }
+
 }
 
